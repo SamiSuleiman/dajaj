@@ -23,7 +23,7 @@
     "@jsverse/transloco": "7.5.0",
     "chart.js": "^4.4.7",
     "environments": "1.2.7",
-    "ng2-charts": "7.0.0",
+    "ng2-charts": "8.0.0",
     "rxjs": "~7.8.0",
     "tslib": "^2.8.1"
   },

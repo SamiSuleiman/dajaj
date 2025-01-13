@@ -48,8 +48,8 @@ importers:
         specifier: 1.2.7
         version: 1.2.7
       ng2-charts:
-        specifier: 7.0.0
-        version: 7.0.0(@angular/cdk@19.0.0(@angular/common@19.0.1(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/common@19.0.1(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@19.0.1(@angular/animations@19.0.1(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.0.1(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0)))(chart.js@4.4.7)(rxjs@7.8.1)
+        specifier: 8.0.0
+        version: 8.0.0(@angular/cdk@19.0.0(@angular/common@19.0.1(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/common@19.0.1(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@19.0.1(@angular/animations@19.0.1(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.0.1(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0)))(chart.js@4.4.7)(rxjs@7.8.1)
       rxjs:
         specifier: ~7.8.0
         version: 7.8.1
@@ -3313,13 +3313,13 @@ packages:
   neo-async@2.6.2:
     resolution: {integrity: sha512-Yd3UES5mWCSqR+qNT93S3UoYUkqAZ9lLg8a7g9rimsWmYGK8cVToA4/sF3RrshdyV3sAGMXVUmpMYOw+dLpOuw==}
 
-  ng2-charts@7.0.0:
-    resolution: {integrity: sha512-HofyPPkz7yOX6Dr9JfV/SDddzmmqCFYCKbn71jeDiyWPRjrj99yTBCyqYtjzzNrnlTfWwbdvynYZ4GAhu/lbgQ==}
+  ng2-charts@8.0.0:
+    resolution: {integrity: sha512-nofsNHI2Zt+EAwT+BJBVg0kgOhNo9ukO4CxULlaIi7VwZSr7I1km38kWSoU41Oq6os6qqIh5srnL+CcV+RFPFA==}
     peerDependencies:
-      '@angular/cdk': '>=18.0.0'
-      '@angular/common': '>=18.0.0'
-      '@angular/core': '>=18.0.0'
-      '@angular/platform-browser': '>=18.0.0'
+      '@angular/cdk': '>=19.0.0'
+      '@angular/common': '>=19.0.0'
+      '@angular/core': '>=19.0.0'
+      '@angular/platform-browser': '>=19.0.0'
       chart.js: ^3.4.0 || ^4.0.0
       rxjs: ^6.5.3 || ^7.4.0
 
@@ -7913,7 +7913,7 @@ snapshots:
 
   neo-async@2.6.2: {}
 
-  ng2-charts@7.0.0(@angular/cdk@19.0.0(@angular/common@19.0.1(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/common@19.0.1(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@19.0.1(@angular/animations@19.0.1(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.0.1(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0)))(chart.js@4.4.7)(rxjs@7.8.1):
+  ng2-charts@8.0.0(@angular/cdk@19.0.0(@angular/common@19.0.1(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/common@19.0.1(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0))(@angular/platform-browser@19.0.1(@angular/animations@19.0.1(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0)))(@angular/common@19.0.1(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0)))(chart.js@4.4.7)(rxjs@7.8.1):
     dependencies:
       '@angular/cdk': 19.0.0(@angular/common@19.0.1(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1))(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)
       '@angular/common': 19.0.1(@angular/core@19.0.1(rxjs@7.8.1)(zone.js@0.15.0))(rxjs@7.8.1)
