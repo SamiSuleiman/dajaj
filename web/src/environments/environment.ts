@@ -1,3 +1,3 @@
 export const environment = {
-  baseUrl: 'https://dajaj.sammysul.com/api',
+  baseUrl: 'https://dajaj.antennatower.xyz/api',
 };

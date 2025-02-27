@@ -20,7 +20,7 @@
     "test:e2e": "jest --config ./test/jest-e2e.json"
   },
   "dependencies": {
-    "@nestjs/axios": "^3.1.2",
+    "@nestjs/axios": "^4.0.0",
     "@nestjs/cache-manager": "^2.3.0",
     "@nestjs/common": "^10.4.15",
     "@nestjs/config": "^3.3.0",
@@ -32,7 +32,7 @@
     "rxjs": "^7.8.1"
   },
   "devDependencies": {
-    "@nestjs/cli": "^10.4.8",
+    "@nestjs/cli": "^11.0.2",
     "@nestjs/schematics": "^10.0.0",
     "@nestjs/testing": "^10.4.15",
     "@types/cache-manager": "^4.0.6",
@@ -40,7 +40,7 @@
     "@types/jest": "^29.5.2",
     "@types/node": "^22.10.1",
     "@types/supertest": "^6.0.0",
-    "@typescript-eslint/eslint-plugin": "^7.0.0",
+    "@typescript-eslint/eslint-plugin": "^8.23.0",
     "@typescript-eslint/parser": "^8.18.2",
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^9.0.0",
