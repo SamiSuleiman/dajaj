@@ -1,32 +1,17 @@
 import { Component, inject, signal } from '@angular/core';
 import { takeUntilDestroyed, toSignal } from '@angular/core/rxjs-interop';
-import {
-  FormControl,
-  FormsModule,
-  ReactiveFormsModule,
-  Validators,
-} from '@angular/forms';
+import { FormControl, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatIconButton } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIcon } from '@angular/material/icon';
 import { MatSelectModule } from '@angular/material/select';
-import {
-  combineLatest,
-  filter,
-  forkJoin,
-  Observable,
-  switchMap,
-  take,
-  tap,
-} from 'rxjs';
+import { combineLatest, filter, forkJoin, Observable, switchMap, take, tap } from 'rxjs';
 import { PlayerMatchStatsDto, PlayerStatsDto } from './leaderboard.model';
 import { LeaderboardService } from './leaderboard.service';
 import { VisualizationsComponent } from './visualizations/visualizations.component';
-import {
-  Visualization,
-  visualizations,
-} from './visualizations/visualiztions.model';
+import { Visualization, visualizations } from './visualizations/visualiztions.model';
 import { TranslocoDirective } from '@jsverse/transloco';
+import { DatePipe } from '@angular/common';
 
 @Component({
   template: `
@@ -37,9 +22,7 @@ import { TranslocoDirective } from '@jsverse/transloco';
             <mat-label>{{ t('visualization.label') }}</mat-label>
             <mat-select [formControl]="visualiztion">
               @for (vis of visualizations; track vis) {
-              <mat-option [value]="vis">{{
-                t('visualization.charts.' + vis)
-              }}</mat-option>
+                <mat-option [value]="vis">{{ t('visualization.charts.' + vis) }}</mat-option>
               }
             </mat-select>
           </mat-form-field>
@@ -48,24 +31,38 @@ import { TranslocoDirective } from '@jsverse/transloco';
               <mat-label>{{ t('usernames.label') }}</mat-label>
               <mat-select [formControl]="usernames" multiple>
                 @for (username of $validUsernames(); track username) {
-                <mat-option [value]="username">{{ username }}</mat-option>
+                  <mat-option [value]="username">{{ username }}</mat-option>
                 }
               </mat-select>
             </mat-form-field>
             <button mat-icon-button (click)="onRefresh()">
               <mat-icon>refresh</mat-icon>
             </button>
+            <!-- "earliest": "The earliest recorded match was on",
+            "matchCount": "The data was collected from",
+            "matches": "Matches", -->
           </div>
         </div>
-        <app-visualizations
-          [visualization]="visualiztion.value!"
-          [playerStats]="$playerStats()"
-          [playerMatchStats]="$playerMatchStats()"
-        ></app-visualizations>
+        @if ($playerStats(); as stats) {
+          <app-visualizations
+            [visualization]="visualiztion.value!"
+            [playerStats]="stats"
+            [playerMatchStats]="$playerMatchStats()"
+          ></app-visualizations>
+          <i class="data__info">
+            {{ t('visualization.matchCount') }} {{ stats[0].matchCount }} {{ t('visualization.matches') }} ,
+            {{ t('visualization.earliest') }} {{ stats[0].earliestMatchDate | date: 'medium' }}
+          </i>
+        }
       </div>
     </ng-container>
   `,
   styles: `
+    .data__info {
+      margin: 10px;
+      font-size: 14px;
+    }
+
     .config__username-select {
       display: flex;
       justify-content: start;
@@ -73,6 +70,7 @@ import { TranslocoDirective } from '@jsverse/transloco';
     }
   `,
   imports: [
+    DatePipe,
     VisualizationsComponent,
     MatFormFieldModule,
     MatSelectModule,
@@ -91,9 +89,7 @@ export class LeaderboardComponent {
   protected readonly $playerStats = signal<PlayerStatsDto[]>([]);
   protected readonly $playerMatchStats = signal<PlayerMatchStatsDto[]>([]);
   protected readonly $validUsernames = toSignal(
-    this.leaderboardService
-      .getValidPlayers$()
-      .pipe(tap((usernames) => this.usernames.setValue(usernames))),
+    this.leaderboardService.getValidPlayers$().pipe(tap((usernames) => this.usernames.setValue(usernames))),
   );
 
   protected readonly usernames = new FormControl<string[]>([]);
@@ -106,10 +102,7 @@ export class LeaderboardComponent {
       .pipe(
         filter((usernames) => !!usernames),
         switchMap((usernames) => {
-          return forkJoin([
-            this.getPlayerStats$(usernames, false),
-            this.getPlayerMatchStats$(usernames, false),
-          ]);
+          return forkJoin([this.getPlayerStats$(usernames, false), this.getPlayerMatchStats$(usernames, false)]);
         }),
         takeUntilDestroyed(),
       )
@@ -123,22 +116,14 @@ export class LeaderboardComponent {
     ]).subscribe();
   }
 
-  protected getPlayerMatchStats$(
-    usernames: string[],
-    doRefresh = false,
-  ): Observable<PlayerMatchStatsDto[]> {
-    return this.leaderboardService
-      .getPlayersMatchStats$(usernames, doRefresh)
-      .pipe(
-        tap((playerMatchStats) => this.$playerMatchStats.set(playerMatchStats)),
-        take(1),
-      );
+  protected getPlayerMatchStats$(usernames: string[], doRefresh = false): Observable<PlayerMatchStatsDto[]> {
+    return this.leaderboardService.getPlayersMatchStats$(usernames, doRefresh).pipe(
+      tap((playerMatchStats) => this.$playerMatchStats.set(playerMatchStats)),
+      take(1),
+    );
   }
 
-  protected getPlayerStats$(
-    usernames: string[],
-    doRefresh = false,
-  ): Observable<PlayerStatsDto[]> {
+  protected getPlayerStats$(usernames: string[], doRefresh = false): Observable<PlayerStatsDto[]> {
     return this.leaderboardService.getLeaderboard$(usernames, doRefresh).pipe(
       tap((playerStats) => this.$playerStats.set(playerStats)),
       take(1),
