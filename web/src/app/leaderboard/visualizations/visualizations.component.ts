@@ -8,17 +8,23 @@ import { LineComponent } from './charts/line.component';
 
 @Component({
   template: `
-    @if ($playerStats(); as playerStats) { @switch ($visualization()) { @case
-    ('table') {
-    <app-table [playerStats]="playerStats"></app-table>
-    } @case ('bar') {
-    <app-bar [playerStats]="playerStats"></app-bar>
-    } @case ('pie') {
-    <app-pie [playerStats]="playerStats"></app-pie>
-    }@case ('line'){
-    <app-line [playerMatchStats]="$playerMatchStats()"></app-line>
-    } } } @else {
-    <span> No data to display. </span>
+    @if ($playerStats(); as playerStats) {
+      @switch ($visualization()) {
+        @case ('table') {
+          <app-table [playerStats]="playerStats"></app-table>
+        }
+        @case ('bar') {
+          <app-bar [playerStats]="playerStats"></app-bar>
+        }
+        @case ('pie') {
+          <app-pie [playerStats]="playerStats"></app-pie>
+        }
+        @case ('line') {
+          <app-line [playerMatchStats]="$playerMatchStats()"></app-line>
+        }
+      }
+    } @else {
+      <span> No data to display. </span>
     }
   `,
   imports: [TableComponent, BarComponent, PieComponent, LineComponent],

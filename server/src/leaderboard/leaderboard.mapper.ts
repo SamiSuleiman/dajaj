@@ -115,6 +115,7 @@ export class LeaderboardMapper {
         weaponsAcquired: 0,
       },
     );
+
     return {
       playerName,
       stats,

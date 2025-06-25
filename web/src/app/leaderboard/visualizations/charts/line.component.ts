@@ -26,7 +26,7 @@ import { DatePipe } from '@angular/common';
           <mat-label>{{ t('stat') }}</mat-label>
           <mat-select [formControl]="selectedStat">
             @for (stat of $statList(); track stat.value) {
-            <mat-option [value]="stat.value">{{ stat.label }}</mat-option>
+              <mat-option [value]="stat.value">{{ stat.label }}</mat-option>
             }
           </mat-select>
         </mat-form-field>
@@ -44,7 +44,7 @@ import { DatePipe } from '@angular/common';
       </div>
     </ng-container>
   `,
-  styles: ` 
+  styles: `
     .canvas__container {
       min-width: min-content;
       height: 100%;
