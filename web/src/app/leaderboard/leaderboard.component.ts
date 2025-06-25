@@ -49,10 +49,12 @@ import { DatePipe } from '@angular/common';
             [playerStats]="stats"
             [playerMatchStats]="$playerMatchStats()"
           ></app-visualizations>
-          <i class="data__info">
-            {{ t('visualization.matchCount') }} {{ stats[0].matchCount }} {{ t('visualization.matches') }} ,
-            {{ t('visualization.earliest') }} {{ stats[0].earliestMatchDate | date: 'medium' }}
-          </i>
+          @if (stats.length > 0) {
+            <i class="data__info">
+              {{ t('visualization.matchCount') }} {{ stats[0].matchCount }} {{ t('visualization.matches') }} ,
+              {{ t('visualization.earliest') }} {{ stats[0].earliestMatchDate | date: 'medium' }}
+            </i>
+          }
         }
       </div>
     </ng-container>
