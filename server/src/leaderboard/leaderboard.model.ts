@@ -3,6 +3,8 @@
 export type PlayerStatsDto = {
   playerName: string;
   stats: Stats;
+  matchCount?: number;
+  earliestMatchDate?: string;
 };
 
 export type Stats = {

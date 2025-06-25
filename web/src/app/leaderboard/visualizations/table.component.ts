@@ -8,22 +8,22 @@ import { VisualiztionsService } from './visualiztions.service';
 @Component({
   template: `
     <mat-table [dataSource]="$dataSource()" class="mat-elevation-z8" matSort>
-      @for(col of $playerAndStatList(); track col.value){
-      <ng-container matColumnDef="{{ col.value }}">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>{{
-          col.label
-        }}</mat-header-cell>
-        <mat-cell *matCellDef="let element">{{
-          format(element[col.value])
-        }}</mat-cell>
-      </ng-container>
+      @for (col of $playerAndStatList(); track col.value) {
+        <ng-container matColumnDef="{{ col.value }}">
+          <mat-header-cell *matHeaderCellDef mat-sort-header>{{
+            col.label
+          }}</mat-header-cell>
+          <mat-cell *matCellDef="let element">{{
+            format(element[col.value])
+          }}</mat-cell>
+        </ng-container>
       }
       <mat-header-row *matHeaderRowDef="$displayedColumns()"></mat-header-row>
       <mat-row *matRowDef="let row; columns: $displayedColumns()"></mat-row>
     </mat-table>
   `,
   styles: `
-    .mat-column-playerName{
+    .mat-column-playerName {
       border-right: 1px solid currentColor;
       padding-right: 100px;
       text-align: center;
@@ -33,7 +33,10 @@ import { VisualiztionsService } from './visualiztions.service';
       overflow: auto;
     }
 
-    mat-header-row, mat-row, mat-header-cell, mat-cell {
+    mat-header-row,
+    mat-row,
+    mat-header-cell,
+    mat-cell {
       min-width: 100px;
     }
   `,
@@ -73,7 +76,7 @@ export class TableComponent {
 
   protected format(stat: any): string | number {
     return typeof stat === 'number'
-      ? this.decimalPipe.transform(stat, '1.0-0') ?? stat
+      ? (this.decimalPipe.transform(stat, '1.0-0') ?? stat)
       : stat;
   }
 }

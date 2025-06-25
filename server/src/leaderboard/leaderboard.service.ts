@@ -46,15 +46,28 @@ export class LeaderboardService {
 
   fetchLeaderboard$(playerNames: string[]): Observable<PlayerStatsDto[]> {
     return this.fetchPlayersWithMathes$(playerNames).pipe(
-      map((players) =>
-        players.map((player) =>
-          LeaderboardMapper.toLeaderboardDto(
+      map((players) => {
+        const matches = Array.from(
+          new Set(...players.map((player) => player.matches)),
+        );
+
+        const matchCount = matches.length;
+        const earliestMatchDate = matches.sort(
+          (a, b) =>
+            new Date(a.data.attributes.createdAt).getTime() -
+            new Date(b.data.attributes.createdAt).getTime(),
+        )[0]?.data?.attributes?.createdAt;
+
+        return players.map((player) => ({
+          ...LeaderboardMapper.toLeaderboardDto(
             player.playerId,
             player.playerName,
-            Array.from(new Set(...players.map((player) => player.matches))),
+            matches,
           ),
-        ),
-      ),
+          earliestMatchDate,
+          matchCount,
+        }));
+      }),
     );
   }
 

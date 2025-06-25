@@ -1,39 +1,42 @@
 {
-    "title": "دجاج",
-    "usernames": {
-        "label": "أسماء المستخدمين"
-    },
-    "visualization": {
-        "label": "تصوير بياني",
-        "charts": {
-            "label": "الرسوم البيانية",
-            "table": "جدول",
-            "pie": "دائري",
-            "line": "خط",
-            "bar": "شريطي",
-            "doughnut": "دونات",
-            "pieType": "نوع الرسم الدائري"
-        }
-    },
-    "stat": "احصائية",
-    "stats": {
-        "playerName": "اسم اللاعب",
-        "kills": "القتل",
-        "knockouts": "الإسقاطات",
-        "damage": "الضرر",
-        "assists": "المساعدات",
-        "headshotKills": "قتل بالطلقات الرأسية",
-        "longestKill": "أطول مسافة قتل",
-        "revives": "الإحياءات",
-        "boosts": "المعززات",
-        "heals": "العلاجات",
-        "weaponsAcquired": "الأسلحة المكتسبة",
-        "teamKills": "قتل الفريق",
-        "rideDistance": "مسافة الركوب",
-        "roadKills": "القتل بواسطة المركبات",
-        "swimDistance": "مسافة السباحة",
-        "timeSurvived": "الوقت الباقي على قيد الحياة",
-        "vehicleDestroys": "تدمير المركبات",
-        "walkDistance": "مسافة المشي"
+  "title": "دجاج",
+  "usernames": {
+    "label": "أسماء المستخدمين"
+  },
+  "visualization": {
+    "label": "تصوير بياني",
+    "earliest": "أول مباراة تم تسجيلها كانت في",
+    "matchCount": "تم جمع البيانات من",
+    "matches": "مباريات/مباراة",
+    "charts": {
+      "label": "الرسوم البيانية",
+      "table": "جدول",
+      "pie": "دائري",
+      "line": "خط",
+      "bar": "شريطي",
+      "doughnut": "دونات",
+      "pieType": "نوع الرسم الدائري"
     }
+  },
+  "stat": "احصائية",
+  "stats": {
+    "playerName": "اسم اللاعب",
+    "kills": "القتل",
+    "knockouts": "الإسقاطات",
+    "damage": "الضرر",
+    "assists": "المساعدات",
+    "headshotKills": "قتل بالطلقات الرأسية",
+    "longestKill": "أطول مسافة قتل",
+    "revives": "الإحياءات",
+    "boosts": "المعززات",
+    "heals": "العلاجات",
+    "weaponsAcquired": "الأسلحة المكتسبة",
+    "teamKills": "قتل الفريق",
+    "rideDistance": "مسافة الركوب",
+    "roadKills": "القتل بواسطة المركبات",
+    "swimDistance": "مسافة السباحة",
+    "timeSurvived": "الوقت الباقي على قيد الحياة",
+    "vehicleDestroys": "تدمير المركبات",
+    "walkDistance": "مسافة المشي"
+  }
 }

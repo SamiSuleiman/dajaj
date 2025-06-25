@@ -1,39 +1,42 @@
 {
-    "title": "Dajaj",
-    "usernames": {
-        "label": "Usernames"
-    },
-    "visualization": {
-        "label": "Visualization",
-        "charts": {
-            "label": "Charts",
-            "table": "Table",
-            "line": "Line",
-            "pie": "Pie",
-            "bar": "Bar",
-            "doughnut": "Doughnut",
-            "pieType": "Pie Type"
-        }
-    },
-    "stat": "Stat",
-    "stats": {
-        "playerName": "Player Name",
-        "kills": "Kills",
-        "knockouts": "KOs",
-        "damage": "Damage",
-        "assists": "Assists",
-        "headshotKills": "Headshot Kills",
-        "longestKill": "Longest Kill",
-        "revives": "Revives",
-        "boosts": "Boosts",
-        "heals": "Heals",
-        "weaponsAcquired": "Weapons Acquired",
-        "teamKills": "Team Kills",
-        "rideDistance": "Ride Distance",
-        "roadKills": "Road Kills",
-        "swimDistance": "Swim Distance",
-        "timeSurvived": "Time Survived",
-        "vehicleDestroys": "Vehicle Destroys",
-        "walkDistance": "Walk Distance"
+  "title": "Dajaj",
+  "usernames": {
+    "label": "Usernames"
+  },
+  "visualization": {
+    "label": "Visualization",
+    "earliest": "The earliest recorded match was on",
+    "matchCount": "The data was collected from",
+    "matches": "Match(es)",
+    "charts": {
+      "label": "Charts",
+      "table": "Table",
+      "line": "Line",
+      "pie": "Pie",
+      "bar": "Bar",
+      "doughnut": "Doughnut",
+      "pieType": "Pie Type"
     }
+  },
+  "stat": "Stat",
+  "stats": {
+    "playerName": "Player Name",
+    "kills": "Kills",
+    "knockouts": "KOs",
+    "damage": "Damage",
+    "assists": "Assists",
+    "headshotKills": "Headshot Kills",
+    "longestKill": "Longest Kill",
+    "revives": "Revives",
+    "boosts": "Boosts",
+    "heals": "Heals",
+    "weaponsAcquired": "Weapons Acquired",
+    "teamKills": "Team Kills",
+    "rideDistance": "Ride Distance",
+    "roadKills": "Road Kills",
+    "swimDistance": "Swim Distance",
+    "timeSurvived": "Time Survived",
+    "vehicleDestroys": "Vehicle Destroys",
+    "walkDistance": "Walk Distance"
+  }
 }
