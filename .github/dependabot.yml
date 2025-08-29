@@ -2,12 +2,12 @@ version: 2
 updates:
   - package-ecosystem: "npm"
     directory: "./server"
-    target-branch: "dev"
+    target-branch: "master"
     schedule:
       interval: "weekly"
 
   - package-ecosystem: "npm"
     directory: "./web"
-    target-branch: "dev"
+    target-branch: "master"
     schedule:
       interval: "weekly"
