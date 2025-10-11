@@ -8,22 +8,36 @@
   outputs =
     { self, nixpkgs }:
     let
-      system = "x86_64-linux";
-      pkgs = import nixpkgs { inherit system; };
+      systems = [
+        "x86_64-linux"
+        "aarch64-darwin"
+      ];
     in
     {
-      devShells.${system}.default = pkgs.mkShell {
-        buildInputs = [
-          pkgs.nodejs_22
-          pkgs.pnpm
-          pkgs.git
-        ];
+      devShells = builtins.listToAttrs (
+        map (
+          system:
+          let
+            pkgs = import nixpkgs { inherit system; };
+          in
+          {
+            name = system;
+            value = {
+              default = pkgs.mkShell {
+                buildInputs = [
+                  pkgs.nodejs_22
+                  pkgs.pnpm
+                  pkgs.git
+                ];
 
-        # Optional: env vars shared across web/ and server/
-        # shellHook = ''
-        #   echo "Welcome to the dev shell 🚀"
-        #   export NODE_ENV=development
-        # '';
-      };
+                shellHook = ''
+                  echo "Welcome to the Angular dev shell 🚀"
+                  export NODE_ENV=development
+                '';
+              };
+            };
+          }
+        ) systems
+      );
     };
 }
